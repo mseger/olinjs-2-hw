@@ -1,0 +1,16 @@
+extends layout 
+
+block content
+	h1 Sad Day
+	p Remove a Cat
+	div
+		form(name="input", action="/cats/delete", method="post")
+			| Cat's Name:
+			input(type="text", name="name")
+			
+			input(type="submit", value="Submit")
+
+
+
+
+

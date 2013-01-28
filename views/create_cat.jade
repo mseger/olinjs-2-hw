@@ -1,0 +1,22 @@
+extends layout 
+
+block content
+	h1 Play God
+	p Create a Cat!
+	div
+		form(name="input", action="/cats/new", method="post")
+			| Cat's Name:
+			input(type="text", name="name")
+				
+			| Cat's Age:
+			input(type="text", name="age")
+					
+			| Cat's Colors:
+			input(type="text", name="colors")
+			
+			input(type="submit", value="Submit")
+
+
+
+
+
