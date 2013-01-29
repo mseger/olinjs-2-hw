@@ -28,7 +28,7 @@ app.configure('development', function(){
 });
 
 // GET 
-app.get('/', routes.index);
+app.get('/', cat.list);
 app.get('/users', user.list);
 app.get('/cats', cat.list);
 app.get('/cats/new', cat.create);
