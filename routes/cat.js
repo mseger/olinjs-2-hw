@@ -60,16 +60,11 @@ exports.remove_post = function(req, res){
 
 exports.remove_oldest = function(req, res){
 	// get the list of cats, sorted by age
-	var cats = Cat.find({}).sort('age').exec(function (err, docs){
+	var cats = Cat.findOneAndRemove({}).sort('-age')
+	cats.exec(function (err, docs){
 		if(err)
-			console.error("error with getting cats", cats);
-			return;
-	});
-	// remove last element of the array (ie. the oldest cat)
-	var oldest_age = cats.pop().age;
-	Cat.remove({'age': oldest_age}, function (err){
-		if (err)
-			return console.log("error, we couldn't delete your old cat");
+			return console.error("error with getting cats", cats);
+		// redirect back to updated Cats page
 		res.redirect('/cats');
 	});
 };
